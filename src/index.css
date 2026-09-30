@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Editorial Palette */
+  --color-paper: #ffffff;
+  --color-paper-dark: #0a0a0a;
+  --color-ink: #141414;
+  --color-ink-dark: #f5f5f5;
+  --color-accent: #000000;
+  --color-accent-dark: #ffffff;
+  
+  /* Borders */
+  --color-border-subtle: rgba(20, 20, 20, 0.08);
+  --color-border-subtle-dark: rgba(245, 245, 245, 0.08);
+}
+
+@layer base {
+  body {
+    @apply font-sans text-ink bg-paper antialiased transition-colors duration-300;
+  }
+  .dark body {
+    @apply text-ink-dark bg-paper-dark;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply backdrop-blur-md bg-white/70 dark:bg-black/70;
+  }
+  
+  .editorial-shadow {
+    box-shadow: 0 4px 24px -4px rgba(0, 0, 0, 0.04);
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-black/10 dark:bg-white/10 rounded-full hover:bg-black/20 dark:hover:bg-white/20 transition-colors;
+  }
+}
